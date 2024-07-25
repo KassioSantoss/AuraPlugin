@@ -3,7 +3,7 @@ package br.com.kassin.entity;
 import br.com.kassin.aura.AuraType;
 import org.bukkit.entity.EntityType;
 
-public interface EntityKillManager {
+public interface KillManagementService {
 
     void add(EntityType entityType);
 
@@ -11,7 +11,7 @@ public interface EntityKillManager {
 
     void clear(EntityType entityType);
 
-    void updateAura(AuraType auraType);
+    void applyAura(AuraType auraType);
 
     boolean enteredForTheFirstTime();
 

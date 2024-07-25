@@ -8,22 +8,22 @@ import br.com.kassin.utils.MessageUtils;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
-public final class EntityKillsManager implements EntityKillManager {
+public final class PlayerKillTracker implements KillManagementService {
 
     private final Aura aura;
     private final MurdersCounter murdersCounter;
-    private static EntityKillsManager entityKillsManager;
+    private static PlayerKillTracker entityKillsManager;
     private final Player player;
 
-    private EntityKillsManager(Player player) {
+    private PlayerKillTracker(Player player) {
         this.player = player;
         this.aura = new Aura(player);
         this.murdersCounter = new MurdersCounter(player);
     }
 
-    public static EntityKillsManager getInstance(Player player) {
+    public static PlayerKillTracker getInstance(Player player) {
         if (entityKillsManager == null) {
-            entityKillsManager = new EntityKillsManager(player);
+            entityKillsManager = new PlayerKillTracker(player);
         }
         return entityKillsManager;
     }
@@ -45,7 +45,7 @@ public final class EntityKillsManager implements EntityKillManager {
     }
 
     @Override
-    public void updateAura(AuraType auraType) {
+    public void applyAura(AuraType auraType) {
         aura.addAura(auraType);
         MessageUtils.send(player, "&aNova Aura desbloqueada: &6" + auraType);
     }
