@@ -1,0 +1,4 @@
+name: aura-plugin
+version: '1.0'
+main: br.com.kassin.Main
+api-version: '1.20'
