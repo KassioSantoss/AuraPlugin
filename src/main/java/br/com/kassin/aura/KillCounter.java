@@ -9,13 +9,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Getter
-public final class MurdersCounter {
+public final class KillCounter {
 
     private final Map<EntityType, Integer> map;
     private int kill = 0;
     private final Player player;
 
-    public MurdersCounter(Player player) {
+    public KillCounter(Player player) {
         this.player = player;
         this.map = new HashMap<>();
     }

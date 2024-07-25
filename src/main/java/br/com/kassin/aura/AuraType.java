@@ -11,8 +11,12 @@ public enum AuraType {
     DEFAULT("default");
     private final String stringValue;
 
-    private AuraType(String stringValue) {
+    private AuraType(final String stringValue) {
         this.stringValue = stringValue;
+    }
+
+    private String getStringValue() {
+        return stringValue;
     }
 
 }

@@ -3,8 +3,8 @@ package br.com.kassin.utils;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 
-public class AuraParticle {
-    public static void spawn(Player player, Particle particleType) {
+public final class ParticleGenerator {
+    public static void spawn(final Player player,final Particle particleType) {
         double radius = 1; // Raio da aura
         double heightOffset = 0.3; // Ajuste da altura da aura
         double particleCount = 15;

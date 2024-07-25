@@ -7,7 +7,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-public class PlayerJoinListener implements Listener {
+public final class PlayerJoinListener implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
@@ -15,9 +15,9 @@ public class PlayerJoinListener implements Listener {
         Player player = event.getPlayer();
         PlayerKillTracker playerKillTracker = PlayerKillTracker.getInstance(player);
 
-        if (playerKillTracker.enteredForTheFirstTime()) {
-            playerKillTracker.applyAura(AuraType.DEFAULT);
-        }
+        if (!playerKillTracker.enteredForTheFirstTime()) return;
+        playerKillTracker.applyAura(AuraType.DEFAULT);
+
     }
 
 }

@@ -10,7 +10,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.checkerframework.checker.units.qual.A;
 
-public class EntityDeathListener implements Listener {
+public final class EntityDeathListener implements Listener {
 
     @EventHandler
     public void onDeath(EntityDeathEvent event) {

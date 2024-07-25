@@ -5,13 +5,13 @@ import org.bukkit.entity.EntityType;
 
 public interface KillManagementService {
 
-    void add(EntityType entityType);
+    void add(final EntityType entityType);
 
-    void remove(EntityType entityType, int amount);
+    void remove(final EntityType entityType,final int amount);
 
-    void clear(EntityType entityType);
+    void clear(final EntityType entityType);
 
-    void applyAura(AuraType auraType);
+    void applyAura(final AuraType auraType);
 
     boolean enteredForTheFirstTime();
 
