@@ -1,7 +1,7 @@
 package br.com.kassin.listeners;
 
 import br.com.kassin.aura.AuraType;
-import br.com.kassin.entity.EntityKillsManager;
+import br.com.kassin.entity.PlayerKillTracker;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -13,10 +13,10 @@ public class PlayerJoinListener implements Listener {
     public void onJoin(PlayerJoinEvent event) {
 
         Player player = event.getPlayer();
-        EntityKillsManager entityKillsManager = EntityKillsManager.getInstance(player);
+        PlayerKillTracker playerKillTracker = PlayerKillTracker.getInstance(player);
 
-        if (entityKillsManager.enteredForTheFirstTime()) {
-            entityKillsManager.updateAura(AuraType.DEFAULT);
+        if (playerKillTracker.enteredForTheFirstTime()) {
+            playerKillTracker.applyAura(AuraType.DEFAULT);
         }
     }
 

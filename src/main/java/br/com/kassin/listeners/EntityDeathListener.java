@@ -1,7 +1,7 @@
 package br.com.kassin.listeners;
 
 import br.com.kassin.aura.AuraType;
-import br.com.kassin.entity.EntityKillsManager;
+import br.com.kassin.entity.PlayerKillTracker;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -17,10 +17,10 @@ public class EntityDeathListener implements Listener {
         Player player = event.getEntity().getKiller();
         Entity entity = event.getEntity();
 
-        EntityKillsManager entityKillsManager = EntityKillsManager.getInstance(player);
+        PlayerKillTracker entityKillsManager = PlayerKillTracker.getInstance(player);
 
         if (entity.getType() == EntityType.ZOMBIE || entity.getType() == EntityType.SKELETON) {
-            entityKillsManager.updateAura(AuraType.DEFAULT);
+            entityKillsManager.applyAura(AuraType.DEFAULT);
         }
     }
 
